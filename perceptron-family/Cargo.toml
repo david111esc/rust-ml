@@ -1,5 +1,5 @@
 [package]
-name = "svm-family-prototype"
+name = "perceptron-family"
 version = "0.1.0"
 authors = ["david111esc <david111esc@gmail.com>"]
 edition = "2018"
@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 ndarray = "0.15.0"
+itertools = "0.10.0"
