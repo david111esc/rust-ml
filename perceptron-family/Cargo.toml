@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 ndarray = "0.15.0"
 itertools = "0.10.0"
+plotly = "0.6.0"
