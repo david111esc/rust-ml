@@ -10,13 +10,9 @@ fn quick_start() {
     let mut b = Array::<f64, Ix1>::zeros(1);
     println!("w0: {}", w);
 
-    let x = array![[1., 0.], [0.4, 0.], [1.4, 0.], [1., 1.]];
-    let y = array![[1.], [1.], [1.], [-1.]];
-    let trace1 = Scatter::new(x.clone().column(0).to_vec(), x.clone().column(1).to_vec())
-        .mode(Mode::Markers);
-    let mut plot = Plot::new();
-    plot.add_trace(trace1);
-    plot.show();
+    let x = array![[1., 0.2], [0.4, 0.6], [1.4, 0.9], [-1., -1.], [-1., 0.5]];
+    let y = array![[1.], [1.], [1.], [-1.], [-1.]];
+
     let mut times = 0;
     loop {
         let mut flag: bool = true;
@@ -37,6 +33,18 @@ fn quick_start() {
             break;
         }
     }
+    let trace1 = Scatter::new(x.clone().column(0).to_vec(), x.clone().column(1).to_vec())
+        .mode(Mode::Markers);
+
+    let trace2_x = Array::linspace(-2.0, 2.0, 10);
+
+    let trace2_y = -(&trace2_x * w[0] + b) / w[1];
+    println!("{:?}\n {:?}", trace2_x, trace2_y);
+    let trace2 = Scatter::new(trace2_x.to_vec(), trace2_y.to_vec());
+    let mut plot = Plot::new();
+    plot.add_trace(trace1);
+    plot.add_trace(trace2);
+    plot.show();
     println!("Total update times: {}", times);
 }
 
