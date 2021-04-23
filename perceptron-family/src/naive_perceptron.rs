@@ -3,13 +3,12 @@ use ndarray::prelude::*;
 extern crate plotly;
 use plotly::common::Mode;
 use plotly::{ImageFormat, Plot, Scatter};
-
+//TODO: 相對於其他套件，可以用 objective function/loss function 作為主體開發 unconstraint algorithms 看看，搭配不同得最佳化演算法
 fn quick_start() {
     let d = 2;
     let mut w = Array::<f64, Ix1>::zeros(d);
     let mut b = Array::<f64, Ix1>::zeros(1);
     println!("w0: {}", w);
-
     let x = array![[1., 0.2], [0.4, 0.6], [1.4, 0.9], [-1., -1.], [-1., 0.5]];
     let y = array![[1.], [1.], [1.], [-1.], [-1.]];
 
